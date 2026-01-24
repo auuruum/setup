@@ -68,15 +68,22 @@ const CONFIG = {
         }
     ],
     ranks: [
-        { game: "CS2", rank: "20,000", label: "Premier Rating", apiUrl: null },
-        { game: "Faceit", rank: "Level 10", label: "Level", apiUrl: null },
+        { 
+            game: "CS2", 
+            rank: "Loading...", 
+            label: "Leetify Rating", 
+            apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
+            type: "cs2"
+        },
+        { game: "Faceit", rank: "Level 7", label: "Level", apiUrl: null },
         { 
             game: "Valorant", 
             rank: "Loading...", 
             label: "Rank", 
             // Change this to your public server IP when deploying
             apiUrl: "http://192.168.0.116:5000/valorant-rank",
-            peakRank: "Loading..." 
+            peakRank: "Loading...",
+            type: "valorant" 
         },
         { game: "Deadlock", rank: "Phantom", label: "Rank", apiUrl: null }
     ],
@@ -257,34 +264,78 @@ async function fetchRankData(apiUrl, rankIndex) {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        const rankConfig = CONFIG.ranks[rankIndex];
         
-        if (data.status === 200 && data.data) {
-            // Update current rank
-            const currentRank = data.data.current_data?.currenttierpatched || 'Unknown';
-            const rankElement = document.getElementById(`rank-value-${rankIndex}`);
-            if (rankElement) {
-                rankElement.textContent = currentRank;
+        if (rankConfig.type === 'cs2') {
+            // Handle CS2/Leetify API response
+            if (data && data.ranks) {
+                const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+                const rankLabelElement = document.querySelector(`#ranksGrid .rank-card:nth-child(${rankIndex + 1}) .rank-label`);
+                
+                // Update Leetify rating
+                if (rankElement) {
+                    rankElement.textContent = data.ranks.leetify ? data.ranks.leetify.toFixed(2) : 'N/A';
+                }
+                
+                // Add additional CS2 stats
+                const rankCard = rankElement?.closest('.rank-card');
+                if (rankCard) {
+                    // Remove existing stats if any
+                    const existingStats = rankCard.querySelector('.cs2-stats');
+                    if (existingStats) existingStats.remove();
+                    
+                    // Create stats container
+                    const statsDiv = document.createElement('div');
+                    statsDiv.className = 'cs2-stats';
+                    
+                    const premierRank = data.ranks.premier || 'Unranked';
+                    const faceitLevel = data.ranks.faceit || 'N/A';
+                    const wingmanRank = data.ranks.wingman || 'N/A';
+                    const winrate = data.winrate ? (data.winrate * 100).toFixed(1) : 0;
+                    
+                    statsDiv.innerHTML = `
+                        <div class="cs2-stat-item">Premier: ${premierRank}</div>
+                        <div class="cs2-stat-item">Winrate: ${winrate}%</div>
+                        <div class="cs2-stat-item">Matches: ${data.total_matches || 0}</div>
+                    `;
+                    
+                    rankCard.appendChild(statsDiv);
+                }
             }
-            
-            // Update rank image
-            const rankImage = data.data.current_data?.images?.large || data.data.current_data?.images?.small;
-            const imgElement = document.getElementById(`rank-image-${rankIndex}`);
-            if (imgElement && rankImage) {
-                imgElement.src = rankImage;
-                imgElement.style.display = 'block';
-            }
-            
-            // Update peak rank if it exists
-            const peakRank = data.data.highest_rank?.patched_tier || null;
-            if (peakRank) {
-                const peakElement = document.getElementById(`rank-peak-${rankIndex}`);
-                if (peakElement) {
-                    peakElement.textContent = `Peak: ${peakRank}`;
+        } else if (rankConfig.type === 'valorant') {
+            // Handle Valorant API response
+            if (data.status === 200 && data.data) {
+                // Update current rank
+                const currentRank = data.data.current_data?.currenttierpatched || 'Unknown';
+                const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+                if (rankElement) {
+                    rankElement.textContent = currentRank;
+                }
+                
+                // Update rank image
+                const rankImage = data.data.current_data?.images?.large || data.data.current_data?.images?.small;
+                const imgElement = document.getElementById(`rank-image-${rankIndex}`);
+                if (imgElement && rankImage) {
+                    imgElement.src = rankImage;
+                    imgElement.style.display = 'block';
+                }
+                
+                // Update peak rank if it exists
+                const peakRank = data.data.highest_rank?.patched_tier || null;
+                if (peakRank) {
+                    const peakElement = document.getElementById(`rank-peak-${rankIndex}`);
+                    if (peakElement) {
+                        peakElement.textContent = `Peak: ${peakRank}`;
+                    }
                 }
             }
         }
     } catch (error) {
         console.error('Failed to fetch rank data:', error);
+        const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+        if (rankElement) {
+            rankElement.textContent = 'Error loading';
+        }
     }
 }
 
