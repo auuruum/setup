@@ -40,6 +40,7 @@ def is_cache_valid():
     return time_elapsed < timedelta(minutes=CACHE_DURATION_MINUTES)
 
 @app.route('/valorant-rank', methods=['GET'])
+@app.route('/valorant-rank/', methods=['GET'])
 @limiter.limit("30 per minute")  # Extra protection: max 30 req/min per IP
 def get_valorant_rank():
     """Fetch Valorant rank data from Henrik API with caching"""
