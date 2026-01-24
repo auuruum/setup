@@ -59,7 +59,7 @@ const CONFIG = {
         {
             category: "RAM",
             name: "32GB DDR5",
-            image: "https://via.placeholder.com/250x150?text=RAM"
+            image: "fa-solid fa-question"
         },
         {
             category: "STREAM DECK",
@@ -156,8 +156,18 @@ function init() {
     CONFIG.specs.forEach(item => {
         const div = document.createElement('div');
         div.className = 'spec-item';
+        
+        // Check if image is a URL or Font Awesome icon
+        let imageHtml;
+        if (item.image.startsWith('http')) {
+            imageHtml = `<img src="${item.image}" alt="${item.name}" class="spec-image">`;
+        } else {
+            // Font Awesome icon
+            imageHtml = `<i class="${item.image} spec-image"></i>`;
+        }
+        
         div.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="spec-image">
+            ${imageHtml}
             <div class="spec-category">${item.category}</div>
             <div class="spec-name">${item.name}</div>
         `;

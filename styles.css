@@ -133,6 +133,15 @@ body {
     padding: 10px;
 }
 
+/* Font Awesome icon styling for specs */
+i.spec-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
 .gear-category, .spec-category {
     color: #ffd700;
     font-size: 12px;
