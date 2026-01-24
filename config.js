@@ -101,6 +101,37 @@ const CONFIG = {
     ],
     games: [
         {
+            name: "Deadlock",
+            settings: [
+                { label: "Resolution", value: "1920x1080" },
+                { label: "Sensitivity", value: "1.25" },
+                { label: "Vertical Scaling", value: "1.0" },
+                { label: "Zoom Sensitivity ratio", value: "1.0" },
+                { label: "DPI", value: "400" },
+                { label: "eDPI", value: "500" }
+            ],
+            crosshair: {
+                themedHeroReticles: false,
+                reticleMotion: false,
+                
+                // Line settings
+                lineWidth: 4,
+                lineHeight: 10,
+                lineGap: 0,
+                lineOpacity: 0,
+                lineBorder: 1,
+                lineBorderGap: 0,
+                lineBorderOpacity: 0,
+                
+                // Dot settings
+                dotSize: 2,
+                dotOpacity: 100,
+                dotBorder: 0,
+                dotBorderGap: 0,
+                dotBorderOpacity: 0
+            }
+        },
+        {
             name: "CS2",
             settings: [
                 { label: "Display Mode", value: "Fullscreen" },
@@ -130,37 +161,6 @@ const CONFIG = {
                 ambientOcclusion: "Disabled",
                 highDynamicRange: "Quality",
                 fidelityFXSuperResolution: "Disabled (Highest Quality)"
-            }
-        },
-        {
-            name: "Deadlock",
-            settings: [
-                { label: "Resolution", value: "1920x1080" },
-                { label: "Sensitivity", value: "1.25" },
-                { label: "Vertical Scaling", value: "1.0" },
-                { label: "Zoom Sensitivity ratio", value: "1.0" },
-                { label: "DPI", value: "400" },
-                { label: "eDPI", value: "500" }
-            ],
-            crosshair: {
-                themedHeroReticles: false,
-                reticleMotion: false,
-                
-                // Line settings
-                lineWidth: 4,
-                lineHeight: 10,
-                lineGap: 0,
-                lineOpacity: 0,
-                lineBorder: 1,
-                lineBorderGap: 0,
-                lineBorderOpacity: 0,
-                
-                // Dot settings
-                dotSize: 2,
-                dotOpacity: 100,
-                dotBorder: 0,
-                dotBorderGap: 0,
-                dotBorderOpacity: 0
             }
         }
     ]
