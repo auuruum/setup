@@ -167,12 +167,16 @@ i.spec-image {
 
 .rank-card {
     background: rgba(0, 0, 0, 0.3);
-    padding: 25px;
+    padding: 20px 18px;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .rank-card:hover {
@@ -181,11 +185,12 @@ i.spec-image {
 }
 
 .rank-game {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    opacity: 0.9;
 }
 
 .rank-image {
@@ -203,17 +208,19 @@ i.spec-image {
 }
 
 .rank-value {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     color: #ffd700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    line-height: 1.1;
 }
 
 .rank-label {
     color: #bbb;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    opacity: 0.8;
 }
 
 .rank-peak {
@@ -228,45 +235,62 @@ i.spec-image {
 }
 
 .cs2-stats {
-    margin-top: 15px;
+    margin-top: auto;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .cs2-stat-row {
     display: flex;
-    gap: 8px;
-    justify-content: space-between;
+    gap: 5px;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .cs2-stat-item {
-    font-size: 12px;
-    color: #ddd;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 8px 12px;
+    font-size: 11px;
+    color: #ccc;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 7px 12px;
     border-radius: 8px;
     flex: 1;
     min-width: fit-content;
-    text-align: left;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.2s;
+}
+
+.cs2-stat-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 215, 0, 0.2);
 }
 
 .cs2-stat-item strong {
-    color: #fff;
-    margin-right: 4px;
+    color: #ffd700;
+    display: block;
+    font-size: 9px;
+    margin-bottom: 3px;
+    font-weight: 600;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .cs2-stat-divider {
-    font-size: 11px;
-    color: #999;
+    font-size: 8px;
+    color: #888;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+    margin: 8px 0 4px 0;
+    padding-top: 0;
+    border-top: none;
     font-weight: 600;
+    text-align: center;
+    opacity: 0.6;
 }
 
 .games-section {

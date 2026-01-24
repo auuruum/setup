@@ -316,16 +316,14 @@ async function fetchRankData(apiUrl, rankIndex) {
                     
                     statsDiv.innerHTML = `
                         <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>Premier:</strong> ${premierRank}</div>
-                        </div>
-                        <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>Winrate:</strong> ${winrate}%</div>
+                            <div class="cs2-stat-item"><strong>Premier</strong> ${premierRank}</div>
+                            <div class="cs2-stat-item"><strong>Winrate</strong> ${winrate}%</div>
                         </div>
                         <div class="cs2-stat-divider">Ratings</div>
                         <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>Aim:</strong> ${aim}</div>
-                            <div class="cs2-stat-item"><strong>Positioning:</strong> ${positioning}</div>
-                            <div class="cs2-stat-item"><strong>Utility:</strong> ${utility}</div>
+                            <div class="cs2-stat-item"><strong>Aim</strong> ${aim}</div>
+                            <div class="cs2-stat-item"><strong>Positioning</strong> ${positioning}</div>
+                            <div class="cs2-stat-item"><strong>Utility</strong> ${utility}</div>
                         </div>
                     `;
                     
@@ -353,7 +351,7 @@ async function fetchRankData(apiUrl, rankIndex) {
                     statsDiv.className = 'cs2-stats';
                     statsDiv.innerHTML = `
                         <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>ELO:</strong> ${faceitElo}</div>
+                            <div class="cs2-stat-item"><strong>ELO</strong> ${faceitElo}</div>
                         </div>
                     `;
                     
@@ -383,7 +381,7 @@ async function fetchRankData(apiUrl, rankIndex) {
                     statsDiv.className = 'cs2-stats';
                     statsDiv.innerHTML = `
                         <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>Leaderboard:</strong> ${leaderboardPlace}</div>
+                            <div class="cs2-stat-item"><strong>Leaderboard</strong> ${leaderboardPlace}</div>
                         </div>
                     `;
                     
