@@ -31,7 +31,7 @@ const CONFIG = {
         },
         {
             category: "MONITOR",
-            name: "Dell Alienware AW2523HF 25",
+            name: "Dell Alienware AW2523HF 25 360Hz",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNUVPRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f391d5765cd04f3f819fea86814a69f54f281ec7/Dell%20Alienware%20AW2523HF%2025.webp"
         },
         {
