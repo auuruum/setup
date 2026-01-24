@@ -100,28 +100,38 @@ const CONFIG = {
         }
     ],
     games: [
-        // {
-        //     name: "CS2",
-        //     settings: [
-        //         { label: "Sensitivity", value: "0.95" },
-        //         { label: "DPI", value: "800" },
-        //         { label: "eDPI", value: "760" },
-        //         { label: "Resolution", value: "1920x1080" },
-        //         { label: "Aspect Ratio", value: "16:9" },
-        //         { label: "Scaling Mode", value: "Native" },
-        //         { label: "Crosshair", value: "CSGO-xxxxx-xxxxx" }
-        //     ]
-        // },
-        // {
-        //     name: "Valorant",
-        //     settings: [
-        //         { label: "Sensitivity", value: "0.38" },
-        //         { label: "DPI", value: "800" },
-        //         { label: "eDPI", value: "304" },
-        //         { label: "Resolution", value: "1920x1080" },
-        //         { label: "Crosshair Color", value: "White" }
-        //     ]
-        // },
+        {
+            name: "CS2",
+            settings: [
+                { label: "Display Mode", value: "Fullscreen" },
+                { label: "Resolution", value: "1280x1024" },
+                { label: "Aspect Ratio", value: "Normal 4:3" },
+                { label: "Brightness", value: "93%" },
+                { label: "Sensitivity", value: "1.25" },
+                { label: "Zoom Sensitivity Multiplier", value: "1.00" },
+                { label: "DPI", value: "400" },
+                { label: "eDPI", value: "500" },
+                { label: "Crosshair Code", value: "CSGO-2RUBu-scDtn-hZzBm-UKU64-WsdqA" }
+            ],
+            videoSettings: {
+                boostPlayerContrast: "Enabled",
+                vSync: "Disabled",
+                nvidiaGSync: "Disabled",
+                nvidiaReflexLowLatency: "Enabled",
+                maximumFPSInGame: 0,
+                maximumFPSInMenus: 200,
+                multisamplingAntiAliasing: "4X MSAA",
+                globalShadowQuality: "Very High",
+                dynamicShadows: "All",
+                modelTextureDetail: "Low",
+                textureFilteringMode: "Bilinear",
+                shaderDetail: "Low",
+                particleDetail: "Low",
+                ambientOcclusion: "Disabled",
+                highDynamicRange: "Quality",
+                fidelityFXSuperResolution: "Disabled (Highest Quality)"
+            }
+        },
         {
             name: "Deadlock",
             settings: [

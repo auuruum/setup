@@ -119,6 +119,46 @@ function init() {
             settingsGrid.appendChild(item);
         });
 
+        // Add video settings if they exist
+        if (game.videoSettings) {
+            const divider = document.createElement('div');
+            divider.className = 'setting-divider';
+            divider.textContent = 'VIDEO SETTINGS';
+            settingsGrid.appendChild(divider);
+
+            Object.entries(game.videoSettings).forEach(([key, value]) => {
+                const item = document.createElement('div');
+                item.className = 'setting-item';
+                // Convert camelCase to Title Case
+                const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                item.innerHTML = `
+                    <span class="setting-label">${label}</span>
+                    <span class="setting-value">${value}</span>
+                `;
+                settingsGrid.appendChild(item);
+            });
+        }
+
+        // Add game settings if they exist
+        if (game.gameSettings) {
+            const divider = document.createElement('div');
+            divider.className = 'setting-divider';
+            divider.textContent = 'GAME SETTINGS';
+            settingsGrid.appendChild(divider);
+
+            Object.entries(game.gameSettings).forEach(([key, value]) => {
+                const item = document.createElement('div');
+                item.className = 'setting-item';
+                // Convert camelCase to Title Case
+                const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                item.innerHTML = `
+                    <span class="setting-label">${label}</span>
+                    <span class="setting-value">${value}</span>
+                `;
+                settingsGrid.appendChild(item);
+            });
+        }
+
         // Add crosshair settings if they exist
         if (game.crosshair) {
             // Add a divider before crosshair settings
