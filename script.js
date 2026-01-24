@@ -91,7 +91,13 @@ const CONFIG = {
             peakRank: "Loading...",
             type: "valorant" 
         },
-        { game: "Deadlock", rank: "Phantom", label: "Rank", apiUrl: null }
+        { 
+            game: "Deadlock", 
+            rank: "Loading...", 
+            label: "Rank", 
+            apiUrl: "https://api.deadlock-api.com/v1/commands/resolve?region=Europe&account_id=1022404092&template=%7Bleaderboard_rank%7D%0A%7Bleaderboard_place%7D",
+            type: "deadlock"
+        }
     ],
     games: [
         {
@@ -269,8 +275,15 @@ function switchGame(index) {
 async function fetchRankData(apiUrl, rankIndex) {
     try {
         const response = await fetch(apiUrl);
-        const data = await response.json();
         const rankConfig = CONFIG.ranks[rankIndex];
+        
+        // Handle different response types
+        let data;
+        if (rankConfig.type === 'deadlock') {
+            data = await response.text();
+        } else {
+            data = await response.json();
+        }
         
         if (rankConfig.type === 'cs2') {
             // Handle CS2/Leetify API response
@@ -347,6 +360,36 @@ async function fetchRankData(apiUrl, rankIndex) {
                     rankCard.appendChild(statsDiv);
                 }
             }
+        } else if (rankConfig.type === 'deadlock') {
+            // Handle Deadlock API response
+            if (data) {
+                // API returns text in format: "rank\nleaderboard_place"
+                const lines = data.trim().split('\n');
+                const rank = lines[0] || 'Unknown';
+                const leaderboardPlace = lines[1] || 'N/A';
+                
+                const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+                if (rankElement) {
+                    rankElement.textContent = rank;
+                }
+                
+                // Add leaderboard place
+                const rankCard = rankElement?.closest('.rank-card');
+                if (rankCard) {
+                    const existingStats = rankCard.querySelector('.cs2-stats');
+                    if (existingStats) existingStats.remove();
+                    
+                    const statsDiv = document.createElement('div');
+                    statsDiv.className = 'cs2-stats';
+                    statsDiv.innerHTML = `
+                        <div class="cs2-stat-row">
+                            <div class="cs2-stat-item"><strong>Leaderboard:</strong> ${leaderboardPlace}</div>
+                        </div>
+                    `;
+                    
+                    rankCard.appendChild(statsDiv);
+                }
+            }
         } else if (rankConfig.type === 'valorant') {
             // Handle Valorant API response
             if (data.status === 200 && data.data) {
@@ -376,7 +419,7 @@ async function fetchRankData(apiUrl, rankIndex) {
             }
         }
     } catch (error) {
-        console.error('Failed to fetch rank data:', error);
+        console.error(`Failed to fetch rank data for ${CONFIG.ranks[rankIndex].game}:`, error);
         const rankElement = document.getElementById(`rank-value-${rankIndex}`);
         if (rankElement) {
             rankElement.textContent = 'Error loading';
