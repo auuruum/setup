@@ -357,6 +357,19 @@ i.spec-image {
     color: #ffd700;
 }
 
+.setting-divider {
+    grid-column: 1 / -1;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px 0 5px 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .container {
         grid-template-columns: 1fr;
