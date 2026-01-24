@@ -70,7 +70,14 @@ const CONFIG = {
     ranks: [
         { game: "CS2", rank: "20,000", label: "Premier Rating", apiUrl: null },
         { game: "Faceit", rank: "Level 10", label: "Level", apiUrl: null },
-        { game: "Valorant", rank: "Immortal 2", label: "Rank", apiUrl: null },
+        { 
+            game: "Valorant", 
+            rank: "Loading...", 
+            label: "Rank", 
+            // Change this to your public server IP when deploying
+            apiUrl: "http://192.168.0.116:5000/valorant-rank",
+            peakRank: "Loading..." 
+        },
         { game: "Deadlock", rank: "Phantom", label: "Rank", apiUrl: null }
     ],
     games: [
@@ -176,15 +183,26 @@ function init() {
 
     // Ranks
     const ranksGrid = document.getElementById('ranksGrid');
-    CONFIG.ranks.forEach(rank => {
+    CONFIG.ranks.forEach((rank, index) => {
         const div = document.createElement('div');
         div.className = 'rank-card';
+        
+        // Show peak rank for games that have it
+        const peakRankHtml = rank.peakRank ? `<div class="rank-peak" id="rank-peak-${index}">Peak: ${rank.peakRank}</div>` : '';
+        
         div.innerHTML = `
             <div class="rank-game">${rank.game}</div>
-            <div class="rank-value">${rank.rank}</div>
+            <img class="rank-image" id="rank-image-${index}" style="display: none;" alt="${rank.game} Rank">
+            <div class="rank-value" id="rank-value-${index}">${rank.rank}</div>
             <div class="rank-label">${rank.label}</div>
+            ${peakRankHtml}
         `;
         ranksGrid.appendChild(div);
+        
+        // Fetch dynamic rank data if apiUrl is provided
+        if (rank.apiUrl) {
+            fetchRankData(rank.apiUrl, index);
+        }
     });
 
     // Game settings
@@ -232,6 +250,42 @@ function switchGame(index) {
     document.querySelectorAll('.game-settings').forEach((panel, i) => {
         panel.classList.toggle('active', i === index);
     });
+}
+
+// Fetch rank data from API
+async function fetchRankData(apiUrl, rankIndex) {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        
+        if (data.status === 200 && data.data) {
+            // Update current rank
+            const currentRank = data.data.current_data?.currenttierpatched || 'Unknown';
+            const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+            if (rankElement) {
+                rankElement.textContent = currentRank;
+            }
+            
+            // Update rank image
+            const rankImage = data.data.current_data?.images?.large || data.data.current_data?.images?.small;
+            const imgElement = document.getElementById(`rank-image-${rankIndex}`);
+            if (imgElement && rankImage) {
+                imgElement.src = rankImage;
+                imgElement.style.display = 'block';
+            }
+            
+            // Update peak rank if it exists
+            const peakRank = data.data.highest_rank?.patched_tier || null;
+            if (peakRank) {
+                const peakElement = document.getElementById(`rank-peak-${rankIndex}`);
+                if (peakElement) {
+                    peakElement.textContent = `Peak: ${peakRank}`;
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Failed to fetch rank data:', error);
+    }
 }
 
 init();

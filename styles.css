@@ -171,6 +171,8 @@ i.spec-image {
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .rank-card:hover {
@@ -182,6 +184,22 @@ i.spec-image {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rank-image {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    transition: all 0.3s;
+}
+
+.rank-card:hover .rank-image {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
 }
 
 .rank-value {
@@ -189,11 +207,24 @@ i.spec-image {
     font-weight: bold;
     color: #ffd700;
     margin-bottom: 8px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .rank-label {
     color: #bbb;
     font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.rank-peak {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
 }
 
 .games-section {
