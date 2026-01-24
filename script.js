@@ -75,7 +75,13 @@ const CONFIG = {
             apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
             type: "cs2"
         },
-        { game: "Faceit", rank: "Level 7", label: "Level", apiUrl: null },
+        { 
+            game: "Faceit", 
+            rank: "Loading...", 
+            label: "Level", 
+            apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
+            type: "faceit"
+        },
         { 
             game: "Valorant", 
             rank: "Loading...", 
@@ -270,7 +276,6 @@ async function fetchRankData(apiUrl, rankIndex) {
             // Handle CS2/Leetify API response
             if (data && data.ranks) {
                 const rankElement = document.getElementById(`rank-value-${rankIndex}`);
-                const rankLabelElement = document.querySelector(`#ranksGrid .rank-card:nth-child(${rankIndex + 1}) .rank-label`);
                 
                 // Update Leetify rating
                 if (rankElement) {
@@ -289,14 +294,54 @@ async function fetchRankData(apiUrl, rankIndex) {
                     statsDiv.className = 'cs2-stats';
                     
                     const premierRank = data.ranks.premier || 'Unranked';
-                    const faceitLevel = data.ranks.faceit || 'N/A';
-                    const wingmanRank = data.ranks.wingman || 'N/A';
                     const winrate = data.winrate ? (data.winrate * 100).toFixed(1) : 0;
                     
+                    // Ratings
+                    const aim = data.rating?.aim ? data.rating.aim.toFixed(1) : 'N/A';
+                    const positioning = data.rating?.positioning ? data.rating.positioning.toFixed(1) : 'N/A';
+                    const utility = data.rating?.utility ? data.rating.utility.toFixed(1) : 'N/A';
+                    
                     statsDiv.innerHTML = `
-                        <div class="cs2-stat-item">Premier: ${premierRank}</div>
-                        <div class="cs2-stat-item">Winrate: ${winrate}%</div>
-                        <div class="cs2-stat-item">Matches: ${data.total_matches || 0}</div>
+                        <div class="cs2-stat-row">
+                            <div class="cs2-stat-item"><strong>Premier:</strong> ${premierRank}</div>
+                        </div>
+                        <div class="cs2-stat-row">
+                            <div class="cs2-stat-item"><strong>Winrate:</strong> ${winrate}%</div>
+                        </div>
+                        <div class="cs2-stat-divider">Ratings</div>
+                        <div class="cs2-stat-row">
+                            <div class="cs2-stat-item"><strong>Aim:</strong> ${aim}</div>
+                            <div class="cs2-stat-item"><strong>Positioning:</strong> ${positioning}</div>
+                            <div class="cs2-stat-item"><strong>Utility:</strong> ${utility}</div>
+                        </div>
+                    `;
+                    
+                    rankCard.appendChild(statsDiv);
+                }
+            }
+        } else if (rankConfig.type === 'faceit') {
+            // Handle Faceit data from Leetify API
+            if (data && data.ranks) {
+                const rankElement = document.getElementById(`rank-value-${rankIndex}`);
+                const faceitLevel = data.ranks.faceit || 'N/A';
+                const faceitElo = data.ranks.faceit_elo || '';
+                
+                if (rankElement) {
+                    rankElement.textContent = `Level ${faceitLevel}`;
+                }
+                
+                // Add ELO if available
+                const rankCard = rankElement?.closest('.rank-card');
+                if (rankCard && faceitElo) {
+                    const existingStats = rankCard.querySelector('.cs2-stats');
+                    if (existingStats) existingStats.remove();
+                    
+                    const statsDiv = document.createElement('div');
+                    statsDiv.className = 'cs2-stats';
+                    statsDiv.innerHTML = `
+                        <div class="cs2-stat-row">
+                            <div class="cs2-stat-item"><strong>ELO:</strong> ${faceitElo}</div>
+                        </div>
                     `;
                     
                     rankCard.appendChild(statsDiv);
