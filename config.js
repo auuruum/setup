@@ -73,6 +73,7 @@ const CONFIG = {
             rank: "Loading...", 
             label: "Leetify Rating", 
             apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
+            openProfileUrl: "https://leetify.com/app/profile/76561198982669820",
             type: "cs2"
         },
         { 
@@ -80,6 +81,7 @@ const CONFIG = {
             rank: "Loading...", 
             label: "Level", 
             apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
+            openProfileUrl: "https://www.faceit.com/ru/players/aurimas42",
             type: "faceit"
         },
         { 
@@ -89,13 +91,16 @@ const CONFIG = {
             // Change this to your public server IP when deploying
             apiUrl: "https://aurumoracle.duckdns.org/valorant-rank/",
             peakRank: "Loading...",
+            openProfileUrl: "https://tracker.gg/valorant/profile/riot/aurum%236570",
             type: "valorant" 
         },
         { 
             game: "Deadlock", 
-            rank: "Loading...", 
+            //rank: "Loading...", 
+            rank: "Ascendant 1",
             label: "Rank", 
-            apiUrl: "https://api.deadlock-api.com/v1/commands/resolve?region=Europe&account_id=1022404092&template=%7Bleaderboard_rank%7D%0A%7Bleaderboard_place%7D",
+            //apiUrl: "https://api.deadlock-api.com/v1/commands/resolve?region=Europe&account_id=1022404092&template=%7Bleaderboard_rank%7D%0A%7Bleaderboard_place%7D",
+            openProfileUrl: "https://statlocker.gg/profile/1022404092/matches",
             type: "deadlock"
         }
     ],
