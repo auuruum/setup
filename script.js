@@ -71,12 +71,25 @@ function init() {
         const div = document.createElement('div');
         div.className = 'rank-card';
         
+        // Make card clickable if openProfileUrl is provided
+        if (rank.openProfileUrl) {
+            div.style.cursor = 'pointer';
+            div.addEventListener('click', () => {
+                window.open(rank.openProfileUrl, '_blank');
+            });
+        }
+        
         // Show peak rank for games that have it
         const peakRankHtml = rank.peakRank ? `<div class="rank-peak" id="rank-peak-${index}">Peak: ${rank.peakRank}</div>` : '';
         
+        // Show rank image if provided in config
+        const rankImageHtml = rank.rankImage ? 
+            `<img class="rank-image" src="${rank.rankImage}" alt="${rank.game} Rank" style="display: block;">` :
+            `<img class="rank-image" id="rank-image-${index}" style="display: none;" alt="${rank.game} Rank">`;
+        
         div.innerHTML = `
             <div class="rank-game">${rank.game}</div>
-            <img class="rank-image" id="rank-image-${index}" style="display: none;" alt="${rank.game} Rank">
+            ${rankImageHtml}
             <div class="rank-value" id="rank-value-${index}">${rank.rank}</div>
             <div class="rank-label">${rank.label}</div>
             ${peakRankHtml}
