@@ -21,7 +21,7 @@ const CONFIG = {
         },
         {
             category: "KEYBOARD",
-            name: "MG7SS HE",
+            name: "MonsGeek MG75S HE",
             image: "https://api.konect.gg/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBempUWFE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e18a80a592d2ac838748e8ea284e79c8d151b182/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKZDJWaWNBWTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJrQzlBRnBBdlFCIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--4a43f73be9eb68366704d8c3b619f2c564b76608/MG75-HE-Shine-Through-1-2000-2000.png"
         },
         {
