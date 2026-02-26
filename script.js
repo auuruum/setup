@@ -34,6 +34,15 @@ function init() {
     CONFIG.gear.forEach(item => {
         const div = document.createElement('div');
         div.className = 'gear-item';
+        
+        // Make item clickable if URL is provided
+        if (item.url) {
+            div.style.cursor = 'pointer';
+            div.addEventListener('click', () => {
+                window.open(item.url, '_blank');
+            });
+        }
+        
         div.innerHTML = `
             <img src="${item.image}" alt="${item.name}" class="gear-image">
             <div class="gear-category">${item.category}</div>
@@ -47,6 +56,14 @@ function init() {
     CONFIG.specs.forEach(item => {
         const div = document.createElement('div');
         div.className = 'spec-item';
+        
+        // Make item clickable if URL is provided
+        if (item.url) {
+            div.style.cursor = 'pointer';
+            div.addEventListener('click', () => {
+                window.open(item.url, '_blank');
+            });
+        }
         
         // Check if image is a URL or Font Awesome icon
         let imageHtml;

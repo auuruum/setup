@@ -17,26 +17,31 @@ const CONFIG = {
         {
             category: "MOUSE",
             name: "Logitech G Pro X Superlight 2 Black",
+            url: "https://www.logitechg.com/en-eu/shop/p/pro-x2-superlight-wireless-mouse.910-006630",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNnNURWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--2ec90ad0db6aa206bf13b920f3ba74fe60682092/gallery-1-pro-x-superlight-2-gaming-mouse-black.png"
         },
         {
             category: "KEYBOARD",
             name: "MonsGeek MG75S HE",
+            url: "https://monsgeek.eu/products/monsgeek-mg75s-he-shine-through-magnetic-switch-keyboard",
             image: "https://api.konect.gg/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBempUWFE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e18a80a592d2ac838748e8ea284e79c8d151b182/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKZDJWaWNBWTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJrQzlBRnBBdlFCIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--4a43f73be9eb68366704d8c3b619f2c564b76608/MG75-HE-Shine-Through-1-2000-2000.png"
         },
         {
             category: "HEADSET",
             name: "SteelSeries Arctis Nova Pro Wireless",
+            url: "https://steelseries.com/gaming-headsets/arctis-nova-pro",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL0VaRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--772b68bfd39416bc15c4eb90d03d055e16e2bd3d/SteelSeries%20Arctis%20Nova%20Pro%20Wireless.webp"
         },
         {
             category: "MONITOR",
             name: "Dell Alienware AW2523HF 25 360Hz",
+            url: "https://www.dell.com/en-us/shop/alienware-25-gaming-monitor-aw2523hf/apd/210-bfed/monitors-monitor-accessories",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNUVPRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f391d5765cd04f3f819fea86814a69f54f281ec7/Dell%20Alienware%20AW2523HF%2025.webp"
         },
         {
             category: "MONITOR",
             name: "Samsung C27F390 27",
+            url: "https://www.samsung.com/ie/business/monitors/curved/curved-cf390-lc27f390fhrxxu/",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN0VTRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--37609680146e399136da7d72684003782827b559/Samsung%20C27F390%2027.webp"
         },
         {
@@ -64,6 +69,7 @@ const CONFIG = {
         {
             category: "STREAM DECK",
             name: "Elgato Stream Deck",
+            url: "https://www.elgato.com/ww/en/p/stream-deck",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHFhIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b052383419811429b4d2c0f1e4d2a84d8f99685/elgato%20stream%20deck.png"
         }
     ],
