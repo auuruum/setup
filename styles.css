@@ -345,16 +345,21 @@ i.spec-image {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 
 .setting-label {
     color: #bbb;
     font-size: 14px;
+    flex-shrink: 0;
 }
 
 .setting-value {
     font-weight: bold;
     color: #ffd700;
+    word-break: break-all;
+    text-align: right;
+    overflow-wrap: break-word;
 }
 
 .setting-divider {
