@@ -154,8 +154,6 @@ const CONFIG = {
                 vSync: "Disabled",
                 nvidiaGSync: "Disabled",
                 nvidiaReflexLowLatency: "Enabled",
-                maximumFPSInGame: 0,
-                maximumFPSInMenus: 200,
                 multisamplingAntiAliasing: "4X MSAA",
                 globalShadowQuality: "Very High",
                 dynamicShadows: "All",
@@ -166,6 +164,38 @@ const CONFIG = {
                 ambientOcclusion: "Disabled",
                 highDynamicRange: "Quality",
                 fidelityFXSuperResolution: "Disabled (Highest Quality)"
+            }
+        },
+        {
+            name: "Valorant",
+            settings: [
+                { label: "Resolution", value: "1280x1024 5:4 (360Hz)" },
+                { label: "Sensitivity", value: "0.393" },
+                { label: "Scoped Sensitivity", value: "0.8" },
+                { label: "ADS Sensitivity", value: "1.0" },
+                { label: "DPI", value: "400" },
+                { label: "eDPI", value: "157.2" },
+                { label: "Enemy Highlight", value: "Yellow (Deuteranopia)" },
+                { label: "Crosshair Code", value: "0;s;1;P;c;6;o;0;f;0;0t;1;0l;4;0v;4;0o;1;0a;1;0f;0;1t;0;1l;0;1v;0;1o;39;1a;0;1m;0;1f;0;S;s;0.601;o;0.938" }
+            ],
+            videoSettings: {
+                displayMode: "Fullscreen",
+                aspectRatioMethod: "Fill",
+                multithreadedRendering: "On",
+                materialQuality: "High",
+                textureQuality: "High",
+                detailQuality: "Low",
+                uiQuality: "High",
+                vignette: "Off",
+                vSync: "Off",
+                antiAliasing: "MSAA 4x",
+                anisotropicFiltering: "16x",
+                improveClarity: "Off",
+                experimentalSharpening: "Off",
+                bloom: "Off",
+                distortion: "Off",
+                castShadows: "On",
+                nvidiaReflex: "On + Boost"
             }
         }
     ]
