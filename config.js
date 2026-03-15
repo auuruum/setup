@@ -103,7 +103,7 @@ const CONFIG = {
         { 
             game: "Deadlock", 
             //rank: "Loading...", 
-            rank: "Ascendant 2",
+            rank: "Ascendant 3",
             label: "Rank", 
             //apiUrl: "https://api.deadlock-api.com/v1/commands/resolve?region=Europe&account_id=1022404092&template=%7Bleaderboard_rank%7D%0A%7Bleaderboard_place%7D",
             openProfileUrl: "https://statlocker.gg/profile/1022404092/matches",
