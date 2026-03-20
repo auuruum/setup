@@ -10,7 +10,7 @@ const CONFIG = {
         { icon: "fa-brands fa-youtube", url: "https://youtube.com/@auurummm" },
         { icon: "fa-brands fa-twitch", url: "https://www.twitch.tv/auurummm" },
         { icon: "fa-brands fa-steam", url: "https://steamcommunity.com/id/auuruum/" },
-        { icon: "https://www.svgrepo.com/show/330406/faceit.svg", url: "https://www.faceit.com/ru/players/aurimas42" },
+        { icon: "https://www.svgrepo.com/show/330406/faceit.svg", url: "https://www.faceit.com/ru/players/auurruum" },
         { icon: "bi bi-globe", url: "https://auuruum.me/" }
     ],
     gear: [
@@ -87,7 +87,7 @@ const CONFIG = {
             rank: "Loading...", 
             label: "Level", 
             apiUrl: "https://api-public.cs-prod.leetify.com/v3/profile?steam64_id=76561198982669820",
-            openProfileUrl: "https://www.faceit.com/ru/players/aurimas42",
+            openProfileUrl: "https://www.faceit.com/ru/players/auurruum",
             type: "faceit"
         },
         { 
