@@ -39,11 +39,24 @@ def is_cache_valid():
     time_elapsed = datetime.now() - cache['timestamp']
     return time_elapsed < timedelta(minutes=CACHE_DURATION_MINUTES)
 
+def build_rank_summary(payload):
+    """Keep only the rank fields used by the site."""
+    data = payload.get('data') or {}
+    current_data = data.get('current_data') or {}
+    highest_rank = data.get('highest_rank') or {}
+    images = current_data.get('images') or {}
+
+    return {
+        'currentRank': current_data.get('currenttierpatched') or 'Unknown',
+        'peakRank': highest_rank.get('patched_tier') or None,
+        'rankImage': images.get('large') or images.get('small') or None
+    }
+
 @app.route('/valorant-rank', methods=['GET'])
 @app.route('/valorant-rank/', methods=['GET'])
 @limiter.limit("30 per minute")  # Extra protection: max 30 req/min per IP
 def get_valorant_rank():
-    """Fetch Valorant rank data from Henrik API with caching"""
+    """Fetch only the Valorant ranks needed by the site."""
     try:
         # Return cached data if still valid
         if is_cache_valid():
@@ -58,13 +71,18 @@ def get_valorant_rank():
         
         # Get the data
         data = response.json()
+        if response.status_code != 200:
+            return jsonify({
+                'error': data.get('errors') or data.get('message') or 'Failed to fetch rank data'
+            }), response.status_code
+
+        rank_summary = build_rank_summary(data)
         
         # Update cache
-        if response.status_code == 200:
-            cache['data'] = data
-            cache['timestamp'] = datetime.now()
+        cache['data'] = rank_summary
+        cache['timestamp'] = datetime.now()
         
-        return jsonify(data), response.status_code
+        return jsonify(rank_summary), 200
         
     except requests.exceptions.Timeout:
         # Return cached data if available, even if expired

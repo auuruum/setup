@@ -361,17 +361,17 @@ async function fetchRankData(apiUrl, rankIndex) {
                 }
             }
         } else if (rankConfig.type === 'valorant') {
-            // Handle Valorant API response
-            if (data.status === 200 && data.data) {
+            // Handle compact Valorant proxy response
+            if (data && data.currentRank) {
                 // Update current rank
-                const currentRank = data.data.current_data?.currenttierpatched || 'Unknown';
+                const currentRank = data.currentRank || 'Unknown';
                 const rankElement = document.getElementById(`rank-value-${rankIndex}`);
                 if (rankElement) {
                     rankElement.textContent = currentRank;
                 }
-                
+
                 // Update rank image
-                const rankImage = data.data.current_data?.images?.large || data.data.current_data?.images?.small;
+                const rankImage = data.rankImage || null;
                 const imgElement = document.getElementById(`rank-image-${rankIndex}`);
                 if (imgElement && rankImage) {
                     imgElement.src = rankImage;
@@ -379,7 +379,7 @@ async function fetchRankData(apiUrl, rankIndex) {
                 }
                 
                 // Update peak rank if it exists
-                const peakRank = data.data.highest_rank?.patched_tier || null;
+                const peakRank = data.peakRank || null;
                 if (peakRank) {
                     const peakElement = document.getElementById(`rank-peak-${rankIndex}`);
                     if (peakElement) {
