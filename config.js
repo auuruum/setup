@@ -29,7 +29,7 @@ const CONFIG = {
         {
             category: "HEADSET",
             name: "SteelSeries Arctis Nova Pro Wireless",
-            url: "https://steelseries.com/gaming-headsets/arctis-nova-pro",
+            url: "https://steelseries.com/gaming-headsets/arctis-nova-pro?color=black&connectivityType=wireless&primaryPlatform=pc",
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL0VaRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--772b68bfd39416bc15c4eb90d03d055e16e2bd3d/SteelSeries%20Arctis%20Nova%20Pro%20Wireless.webp"
         },
         {
