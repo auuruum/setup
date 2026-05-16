@@ -33,6 +33,30 @@ const CONFIG = {
             image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL0VaRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--772b68bfd39416bc15c4eb90d03d055e16e2bd3d/SteelSeries%20Arctis%20Nova%20Pro%20Wireless.webp"
         },
         {
+            category: "MIC",
+            name: "RODE PodMic USB",
+            url: "https://rode.com/en/microphones/usb/podmic-usb",
+            image: "https://edge.rode.com//images/products/variants/183/rode-podmic-usb-black-hero-3-quater-tilted-4000x4000-rgb-2000x2000-064a3d6.png"
+        },
+        {
+            category: "MIC ARM",
+            name: "FIFINE BM88",
+            url: "https://fifinemicrophone.com/products/fifine-bm88-microphone-boom-arm-stand",
+            image: "https://fifinemicrophone.com/cdn/shop/files/FIFINE-BM88-microphone-boom-arm-low_profile-adjustment-black-04.png?v=1767497895&width=1206"
+        },
+        {
+            category: "WEBCAM",
+            name: "OBSBOT Tiny 3 Lite",
+            url: "https://www.obsbot.com/store/products/tiny-3-series?product_id=9fb836209eec4",
+            image: "https://i.ibb.co/cKtzzBKJ/osbbot-tiny3-lite.png"
+        },
+        {
+            category: "STREAM DECK",
+            name: "Elgato Stream Deck",
+            url: "https://www.elgato.com/ww/en/p/stream-deck",
+            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHFhIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b052383419811429b4d2c0f1e4d2a84d8f99685/elgato%20stream%20deck.png"
+        },
+        {
             category: "MONITOR",
             name: "Dell Alienware AW2523HF 25 360Hz",
             url: "https://www.dell.com/en-us/shop/alienware-25-gaming-monitor-aw2523hf/apd/210-bfed/monitors-monitor-accessories",
@@ -65,12 +89,6 @@ const CONFIG = {
             category: "RAM",
             name: "32GB DDR5",
             image: "fa-solid fa-question"
-        },
-        {
-            category: "STREAM DECK",
-            name: "Elgato Stream Deck",
-            url: "https://www.elgato.com/ww/en/p/stream-deck",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHFhIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b052383419811429b4d2c0f1e4d2a84d8f99685/elgato%20stream%20deck.png"
         }
     ],
     ranks: [
