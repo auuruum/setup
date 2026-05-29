@@ -113,7 +113,7 @@ const CONFIG = {
             rank: "Loading...", 
             label: "Rank", 
             // Change this to your public server IP when deploying
-            apiUrl: "https://aurumoracle.duckdns.org/valorant-rank/",
+            apiUrl: "https://aurumoracle.duckdns.org/api/valorant-rank/",
             peakRank: "Loading...",
             openProfileUrl: "https://tracker.gg/valorant/profile/riot/aurum%236570",
             type: "valorant" 
