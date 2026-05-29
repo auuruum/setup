@@ -4,6 +4,10 @@ function init() {
     document.getElementById('username').textContent = CONFIG.profile.username;
     document.getElementById('location').textContent = CONFIG.profile.location;
     document.getElementById('profileImage').src = CONFIG.profile.image;
+    const profileFlag = document.getElementById('profileFlag');
+    if (profileFlag && CONFIG.profile.flagImage) {
+        profileFlag.src = CONFIG.profile.flagImage;
+    }
 
     // Social links
     const socialLinks = document.getElementById('socialLinks');

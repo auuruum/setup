@@ -3,7 +3,7 @@ const CONFIG = {
     profile: {
         username: "AUURUUM",
         location: "Lithuania",
-        flag: "🇱🇹",
+        flagImage: "assets/flags/lithuania.svg",
         image: "https://i.ibb.co/hRtSbyDW/128x128.png"
     },
     socials: [
