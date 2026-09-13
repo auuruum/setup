@@ -1,3 +1,8 @@
+const DEADLOCK_RANK_NAMES = [
+    'Obscurus', 'Initiate', 'Seeker', 'Acolyte', 'Sentinel', 'Mystic',
+    'Ritualist', 'Emissary', 'Oracle', 'Phantom', 'Ascendant', 'Eternus'
+];
+
 // Initialize page
 function init() {
     // Profile
@@ -120,6 +125,9 @@ function init() {
         // Fetch dynamic rank data if apiUrl is provided
         if (rank.apiUrl) {
             fetchRankData(rank.apiUrl, index);
+            if (rank.refreshInterval) {
+                window.setInterval(() => fetchRankData(rank.apiUrl, index), rank.refreshInterval);
+            }
         }
     });
 
@@ -250,16 +258,13 @@ function switchGame(index) {
 // Fetch rank data from API
 async function fetchRankData(apiUrl, rankIndex) {
     try {
-        const response = await fetch(apiUrl);
         const rankConfig = CONFIG.ranks[rankIndex];
-        
-        // Handle different response types
-        let data;
-        if (rankConfig.type === 'deadlock') {
-            data = await response.text();
-        } else {
-            data = await response.json();
+        const response = await fetch(apiUrl, { cache: 'no-store' });
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
         }
+
+        const data = await response.json();
         
         if (rankConfig.type === 'cs2') {
             // Handle CS2/Leetify API response
@@ -335,34 +340,21 @@ async function fetchRankData(apiUrl, rankIndex) {
                 }
             }
         } else if (rankConfig.type === 'deadlock') {
-            // Handle Deadlock API response
-            if (data) {
-                // API returns text in format: "rank\nleaderboard_place"
-                const lines = data.trim().split('\n');
-                const rank = lines[0] || 'Unknown';
-                const leaderboardPlace = lines[1] || 'N/A';
+            if (data && Number.isInteger(data.rank)) {
+                const rankName = DEADLOCK_RANK_NAMES[data.rank] || 'Unknown';
+                const rank = data.rank === 0 ? 'Unranked' : `${rankName} ${data.subrank || ''}`.trim();
                 
                 const rankElement = document.getElementById(`rank-value-${rankIndex}`);
                 if (rankElement) {
                     rankElement.textContent = rank;
                 }
-                
-                // Add leaderboard place
-                const rankCard = rankElement?.closest('.rank-card');
-                if (rankCard) {
-                    const existingStats = rankCard.querySelector('.cs2-stats');
-                    if (existingStats) existingStats.remove();
-                    
-                    const statsDiv = document.createElement('div');
-                    statsDiv.className = 'cs2-stats';
-                    statsDiv.innerHTML = `
-                        <div class="cs2-stat-row">
-                            <div class="cs2-stat-item"><strong>Leaderboard</strong> ${leaderboardPlace}</div>
-                        </div>
-                    `;
-                    
-                    rankCard.appendChild(statsDiv);
+
+                const imgElement = document.getElementById(`rank-image-${rankIndex}`);
+                if (imgElement && rankConfig.rankImageUrl) {
+                    imgElement.src = `${rankConfig.rankImageUrl}?format=webp&v=${data.badge}`;
+                    imgElement.style.display = 'block';
                 }
+
             }
         } else if (rankConfig.type === 'valorant') {
             // Handle compact Valorant proxy response
