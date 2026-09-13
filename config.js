@@ -4,7 +4,7 @@ const CONFIG = {
         username: "AUURUUM",
         location: "Lithuania",
         flagImage: "assets/flags/lithuania.svg",
-        image: "https://i.ibb.co/hRtSbyDW/128x128.png"
+        image: "assets/profile.png"
     },
     socials: [
         { icon: "fa-brands fa-youtube", url: "https://youtube.com/@auurummm" },
@@ -48,7 +48,7 @@ const CONFIG = {
             category: "WEBCAM",
             name: "OBSBOT Tiny 3 Lite",
             url: "https://www.obsbot.com/store/products/tiny-3-series?product_id=9fb836209eec4",
-            image: "https://i.ibb.co/cKtzzBKJ/osbbot-tiny3-lite.png"
+            image: "assets/obsbot-tiny3-lite.png"
         },
         {
             category: "STREAM DECK",

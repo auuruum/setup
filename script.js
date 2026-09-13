@@ -48,7 +48,7 @@ function init() {
         }
         
         div.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="gear-image">
+            <img src="${item.image}" alt="${item.name}" class="gear-image" loading="lazy" decoding="async">
             <div class="gear-category">${item.category}</div>
             <div class="gear-name">${item.name}</div>
         `;
@@ -72,7 +72,7 @@ function init() {
         // Check if image is a URL or Font Awesome icon
         let imageHtml;
         if (item.image.startsWith('http')) {
-            imageHtml = `<img src="${item.image}" alt="${item.name}" class="spec-image">`;
+            imageHtml = `<img src="${item.image}" alt="${item.name}" class="spec-image" loading="lazy" decoding="async">`;
         } else {
             // Font Awesome icon
             imageHtml = `<i class="${item.image} spec-image"></i>`;
