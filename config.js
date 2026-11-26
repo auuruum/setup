@@ -7,11 +7,11 @@ const CONFIG = {
         image: "assets/profile.png"
     },
     socials: [
-        { icon: "fa-brands fa-youtube", url: "https://youtube.com/@auurummm" },
-        { icon: "fa-brands fa-twitch", url: "https://www.twitch.tv/auurummm" },
-        { icon: "fa-brands fa-steam", url: "https://steamcommunity.com/id/auuruum/" },
-        { icon: "assets/icons/faceit.svg", url: "https://www.faceit.com/ru/players/auurruum" },
-        { icon: "bi bi-globe", url: "https://auuruum.me/" }
+        { name: "YouTube", icon: "fa-brands fa-youtube", url: "https://youtube.com/@auurummm" },
+        { name: "Twitch", icon: "fa-brands fa-twitch", url: "https://www.twitch.tv/auurummm" },
+        { name: "Steam", icon: "fa-brands fa-steam", url: "https://steamcommunity.com/id/auuruum/" },
+        { name: "FACEIT", icon: "assets/icons/faceit.svg", url: "https://www.faceit.com/ru/players/auurruum" },
+        { name: "Website", icon: "bi bi-globe", url: "https://auuruum.me/" }
     ],
     gear: [
         {
@@ -87,8 +87,8 @@ const CONFIG = {
         },
         {
             category: "RAM",
-            name: "32GB DDR5",
-            image: "fa-solid fa-question"
+            name: "Patriot 32GB (2x16GB) DDR5-6000",
+            image: "assets/specs/ram-ddr5.svg"
         }
     ],
     ranks: [
@@ -172,7 +172,7 @@ const CONFIG = {
                 { label: "Zoom Sensitivity Multiplier", value: "1.00" },
                 { label: "DPI", value: "400" },
                 { label: "eDPI", value: "500" },
-                { label: "Crosshair Code", value: "CSGO-2RUBu-scDtn-hZzBm-UKU64-WsdqA" }
+                { label: "Crosshair Code", copy: true, value: "CSGO-2RUBu-scDtn-hZzBm-UKU64-WsdqA" }
             ],
             videoSettings: {
                 boostPlayerContrast: "Enabled",
@@ -201,7 +201,7 @@ const CONFIG = {
                 { label: "DPI", value: "400" },
                 { label: "eDPI", value: "157.2" },
                 { label: "Enemy Highlight", value: "Yellow (Deuteranopia)" },
-                { label: "Crosshair Code", value: "0;s;1;P;c;6;o;0;f;0;0t;1;0l;4;0v;4;0o;1;0a;1;0f;0;1t;0;1l;0;1v;0;1o;39;1a;0;1m;0;1f;0;S;s;0.601;o;0.938" }
+                { label: "Crosshair Code", copy: true, value: "0;s;1;P;c;6;o;0;f;0;0t;1;0l;4;0v;4;0o;1;0a;1;0f;0;1t;0;1l;0;1v;0;1o;39;1a;0;1m;0;1f;0;S;s;0.601;o;0.938" }
             ],
             videoSettings: {
                 displayMode: "Fullscreen",

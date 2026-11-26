@@ -128,6 +128,27 @@ body {
     transition: all 0.3s;
 }
 
+[hidden] {
+    display: none !important;
+}
+
+/* Cards rendered as links keep the card look */
+a.gear-item, a.spec-item, a.rank-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+a.rank-card {
+    display: flex;
+}
+
+a.gear-item:focus-visible, a.spec-item:focus-visible, a.rank-card:focus-visible,
+.social-link:focus-visible, .game-tab:focus-visible, .copy-button:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 3px;
+}
+
 .gear-item:hover, .spec-item:hover {
     background: rgba(0, 0, 0, 0.5);
     transform: translateY(-5px);
@@ -372,6 +393,35 @@ i.spec-image {
     overflow-wrap: break-word;
 }
 
+.setting-value-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.copy-button {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.copy-button:hover {
+    background: rgba(255, 215, 0, 0.25);
+}
+
+.copy-button.copied {
+    background: #ffd700;
+    color: #000;
+}
+
 .setting-divider {
     grid-column: 1 / -1;
     font-size: 11px;
@@ -495,5 +545,9 @@ i.spec-image {
     .setting-value {
         max-width: 100%;
         text-align: left;
+    }
+
+    .setting-value-wrap {
+        max-width: 100%;
     }
 }
