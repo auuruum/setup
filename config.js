@@ -10,7 +10,7 @@ const CONFIG = {
         { icon: "fa-brands fa-youtube", url: "https://youtube.com/@auurummm" },
         { icon: "fa-brands fa-twitch", url: "https://www.twitch.tv/auurummm" },
         { icon: "fa-brands fa-steam", url: "https://steamcommunity.com/id/auuruum/" },
-        { icon: "https://www.svgrepo.com/show/330406/faceit.svg", url: "https://www.faceit.com/ru/players/auurruum" },
+        { icon: "assets/icons/faceit.svg", url: "https://www.faceit.com/ru/players/auurruum" },
         { icon: "bi bi-globe", url: "https://auuruum.me/" }
     ],
     gear: [
@@ -18,72 +18,72 @@ const CONFIG = {
             category: "MOUSE",
             name: "Logitech G Pro X Superlight 2 Black",
             url: "https://www.logitechg.com/en-eu/shop/p/pro-x2-superlight-wireless-mouse.910-006630",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNnNURWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--2ec90ad0db6aa206bf13b920f3ba74fe60682092/gallery-1-pro-x-superlight-2-gaming-mouse-black.png"
+            image: "assets/gear/logitech-g-pro-x-superlight-2.png"
         },
         {
             category: "KEYBOARD",
             name: "MonsGeek MG75S HE",
             url: "https://monsgeek.eu/products/monsgeek-mg75s-he-shine-through-magnetic-switch-keyboard",
-            image: "https://api.konect.gg/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBempUWFE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--e18a80a592d2ac838748e8ea284e79c8d151b182/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKZDJWaWNBWTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJrQzlBRnBBdlFCIiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--4a43f73be9eb68366704d8c3b619f2c564b76608/MG75-HE-Shine-Through-1-2000-2000.png"
+            image: "assets/gear/monsgeek-mg75s-he.webp"
         },
         {
             category: "HEADSET",
             name: "SteelSeries Arctis Nova Pro Wireless",
             url: "https://steelseries.com/gaming-headsets/arctis-nova-pro?color=black&connectivityType=wireless&primaryPlatform=pc",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL0VaRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--772b68bfd39416bc15c4eb90d03d055e16e2bd3d/SteelSeries%20Arctis%20Nova%20Pro%20Wireless.webp"
+            image: "assets/gear/steelseries-arctis-nova-pro.webp"
         },
         {
             category: "MIC",
             name: "RODE PodMic USB",
             url: "https://rode.com/en/microphones/usb/podmic-usb",
-            image: "https://edge.rode.com//images/products/variants/183/rode-podmic-usb-black-hero-3-quater-tilted-4000x4000-rgb-2000x2000-064a3d6.png"
+            image: "assets/gear/rode-podmic-usb.webp"
         },
         {
             category: "MIC ARM",
             name: "FIFINE BM88",
             url: "https://fifinemicrophone.com/products/fifine-bm88-microphone-boom-arm-stand",
-            image: "https://fifinemicrophone.com/cdn/shop/files/FIFINE-BM88-microphone-boom-arm-low_profile-adjustment-black-04.png?v=1767497895&width=1206"
+            image: "assets/gear/fifine-bm88.webp"
         },
         {
             category: "WEBCAM",
             name: "OBSBOT Tiny 3 Lite",
             url: "https://www.obsbot.com/store/products/tiny-3-series?product_id=9fb836209eec4",
-            image: "assets/obsbot-tiny3-lite.png"
+            image: "assets/gear/obsbot-tiny3-lite.webp"
         },
         {
             category: "STREAM DECK",
             name: "Elgato Stream Deck",
             url: "https://www.elgato.com/ww/en/p/stream-deck",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaHFhIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b052383419811429b4d2c0f1e4d2a84d8f99685/elgato%20stream%20deck.png"
+            image: "assets/gear/elgato-stream-deck.webp"
         },
         {
             category: "MONITOR",
             name: "Dell Alienware AW2523HF 25 360Hz",
             url: "https://www.dell.com/en-us/shop/alienware-25-gaming-monitor-aw2523hf/apd/210-bfed/monitors-monitor-accessories",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNUVPRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f391d5765cd04f3f819fea86814a69f54f281ec7/Dell%20Alienware%20AW2523HF%2025.webp"
+            image: "assets/gear/dell-aw2523hf.webp"
         },
         {
             category: "MONITOR",
             name: "Samsung C27F390 27",
             url: "https://www.samsung.com/ie/business/monitors/curved/curved-cf390-lc27f390fhrxxu/",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN0VTRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--37609680146e399136da7d72684003782827b559/Samsung%20C27F390%2027.webp"
+            image: "assets/gear/samsung-c27f390.webp"
         },
         {
             category: "MONITOR",
             name: "Dell P2214H",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMUFPRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--754365768a79e71c729b7ac84c420612fb4f14b9/Dell%20P2214H.webp"
+            image: "assets/gear/dell-p2214h.webp"
         }
     ],
     specs: [
         {
             category: "CPU",
             name: "AMD Ryzen 7 7700X",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmNjRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--99dadb6220998f91cc0b8f59cfb0de1680cab07e/AMD%20Ryzen%207%207700X.webp"
+            image: "assets/specs/amd-ryzen-7-7700x.webp"
         },
         {
             category: "GPU",
             name: "Asus Dual GeForce RTX 4060 Ti 8GB",
-            image: "https://api.konect.gg/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBODRyRUE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d371b4feef09ed124144ce6168f64cea818630f6/Asus%20Dual%20GeForce%20RTX%204060%20Ti%208GB.webp"
+            image: "assets/specs/rtx-4060-ti.webp"
         },
         {
             category: "RAM",

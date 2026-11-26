@@ -3,6 +3,12 @@ const DEADLOCK_RANK_NAMES = [
     'Ritualist', 'Emissary', 'Oracle', 'Phantom', 'Ascendant', 'Eternus'
 ];
 
+// "fa-solid fa-question" is an icon class; URLs and paths like "assets/x.png" are images
+function isImageSource(value) {
+    return /^(https?:|data:|\/|\.)/i.test(value) || value.includes('/') ||
+        /\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$/i.test(value);
+}
+
 // Initialize page
 function init() {
     // Profile
@@ -23,7 +29,7 @@ function init() {
         link.target = '_blank';
         
         // Check if icon is a URL (for custom SVG icons)
-        if (social.icon.startsWith('http')) {
+        if (isImageSource(social.icon)) {
             const img = document.createElement('img');
             img.src = social.icon;
             img.alt = 'Social icon';
@@ -76,7 +82,7 @@ function init() {
         
         // Check if image is a URL or Font Awesome icon
         let imageHtml;
-        if (item.image.startsWith('http')) {
+        if (isImageSource(item.image)) {
             imageHtml = `<img src="${item.image}" alt="${item.name}" class="spec-image" loading="lazy" decoding="async">`;
         } else {
             // Font Awesome icon
@@ -255,16 +261,29 @@ function switchGame(index) {
     });
 }
 
+// Share in-flight requests so cards with the same apiUrl (CS2 + Faceit) fetch once
+const pendingRequests = new Map();
+
+function fetchJson(url) {
+    if (!pendingRequests.has(url)) {
+        const request = fetch(url, { cache: 'no-store' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .finally(() => pendingRequests.delete(url));
+        pendingRequests.set(url, request);
+    }
+    return pendingRequests.get(url);
+}
+
 // Fetch rank data from API
 async function fetchRankData(apiUrl, rankIndex) {
     try {
         const rankConfig = CONFIG.ranks[rankIndex];
-        const response = await fetch(apiUrl, { cache: 'no-store' });
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
+        const data = await fetchJson(apiUrl);
         
         if (rankConfig.type === 'cs2') {
             // Handle CS2/Leetify API response
